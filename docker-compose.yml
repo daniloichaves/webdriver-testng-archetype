@@ -34,8 +34,6 @@ services:
     - selenium-hub:hub
     ports:
     - 5901:5900/tcp
-    labels:
-      io.rancher.container.pull_image: always
   selenium-node-firefox:
     image: selenium/node-firefox-debug:3.3.0
     environment:

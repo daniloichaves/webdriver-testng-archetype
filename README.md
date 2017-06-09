@@ -46,10 +46,16 @@ The project use docker for create a enviroment and test yout aplicação when yo
  Selenium-hub
     It's a management node of selenium, it will expose the port 444
 
+selenium-node-firefox
+    Its a node that contains only a client instance instaled with firefox,it will expose the port 590- for to acces via VNC
+
  selenium-node-chrome
     Its a node that contains only a client instance instaled with chrome ,it will expose the port 5901 for to acces via VNC
     
 
+```
+ ./start.sh
+```
 
 References:
 
