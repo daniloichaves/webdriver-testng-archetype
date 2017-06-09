@@ -37,10 +37,10 @@ The target application URL and the grid location should be specifies in the `pom
 
 Driver capabilities can be tuned in the files `src/test/resources/*.capabilities`.
 
-Project Docker Selenium Hub Configuration
+Enviroment Docker Selenium Hub Configuration
 -----------------------------------
 
-The project use docker for create a enviroment and test yout aplicação when you use localhost instance, 
+The enviroment use docker for create a enviroment and test yout aplicação when you use localhost instance, 
  The file `docker-compose` is a configuration of oficial image for create this enviroment:
 
  Selenium-hub
