@@ -36,3 +36,22 @@ Default profile set is `firefox,localhost,nogrid`
 The target application URL and the grid location should be specifies in the `pom.xml` file in the corresponding profiles.
 
 Driver capabilities can be tuned in the files `src/test/resources/*.capabilities`.
+
+Project Docker Selenium Hub Configuration
+-----------------------------------
+
+The project use docker for create a enviroment and test yout aplicação when you use localhost instance, 
+ The file `docker-compose` is a configuration of oficial image for create this enviroment:
+
+ Selenium-hub
+    It's a management node of selenium, it will expose the port 444
+
+ selenium-node-chrome
+    Its a node that contains only a client instance instaled with chrome ,it will expose the port 5901 for to acces via VNC
+    
+
+
+References:
+
+https://github.com/SeleniumHQ/docker-selenium
+

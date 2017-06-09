@@ -3,7 +3,8 @@ services:
   selenium-hub:
     image: selenium/hub
     environment:
-      HTTP_PROXY: http://dischiavolini:123mudar@10.130.214.242:3128/
+      SE_OPTS: -debug true
+      #HTTP_PROXY: http://dischiavolini:123mudar@10.130.214.242:3128/
       #HTTPS_PROXY: http://dischiavolini:123mudar@10.130.214.242:3128/
       #https_proxy: http://dischiavolini:123mudar@10.130.214.242:3128/
       #http_proxy: http://dischiavolini:123mudar@10.130.214.242:3128/
@@ -16,8 +17,9 @@ services:
     - 4444:4444/tcp
   selenium-node-chrome:
     image: selenium/node-chrome-debug
-    environment:  #
-      HTTPS_PROXY: http://10.130.214.242:3128
+    environment:  
+      SE_OPTS: -debug true
+      #HTTPS_PROXY: http://10.130.214.242:3128
       #HTTP_PROXY: http://10.130.214.242:3128
       #http_proxy: http://10.130.214.242:3128
       #https_proxy: http://10.130.214.242:3128
@@ -37,7 +39,8 @@ services:
   selenium-node-firefox:
     image: selenium/node-firefox-debug:3.3.0
     environment:
-      http_proxy: http://10.130.214.242:3128
+      SE_OPTS: -debug true
+      #http_proxy: http://10.130.214.242:3128
       #https_proxy: http://10.130.214.242:3128
       #no_proxy: localhost,127.0.0.1,10.*
       #HTTP_PROXY: http://10.130.214.242:3128
