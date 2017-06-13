@@ -14,3 +14,12 @@ else
 fi
 #Excec 
 bash compse-compose up
+
+mkdir projects
+cd projects
+
+
+mvn archetype:generate -DarchetypeGroupId=ru.stqa.selenium -DarchetypeArtifactId=webdriver-testng-archetype -DarchetypeVersion=4.0 -DgroupId=com.webdriver -DartifactId=sample
+
+
+

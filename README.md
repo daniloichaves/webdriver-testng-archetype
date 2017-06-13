@@ -54,11 +54,37 @@ selenium-node-firefox
     
 
 ```
- ./start.sh
+ docker-compose up
 ```
 
+Sample create and execute a project
+-----------------------------------
+
+For the exemple works, we need first the docker and docker compose installed on enviroment.
+
+Create a folder called 'projects'
+
 ```
-mvn archetype:generate -DarchetypeGroupId=ru.stqa.selenium -DarchetypeArtifactId=webdriver-testng-archetype -DarchetypeVersion=4.0 -DgroupId=<mygroupId> -DartifactId=<myartifactId>
+mkdir projetcts
+cd projetcts
+```
+ Now we create a project called sample;
+
+```
+mvn archetype:generate -DarchetypeGroupId=ru.stqa.selenium -DarchetypeArtifactId=webdriver-testng-archetype -DarchetypeVersion=4.0 -DgroupId=com.webdriver -DartifactId=sample
+```
+
+
+For view the executation inside of docker Chrome
+
+```
+vncviewer localhost:5900 &
+```
+
+For view the executation inside of docker Firefox 
+
+```
+vncviewer localhost:5901 &
 ```
 
 
