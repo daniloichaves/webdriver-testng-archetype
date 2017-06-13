@@ -1,55 +1,55 @@
 version: '2'
+
+networks:
+  private:
+    driver: bridge
+
 services:
-  selenium-hub:
+  hub:
+    container_name: hub
     image: selenium/hub
-    environment:
-      SE_OPTS: -debug true
-      #HTTP_PROXY: http://dischiavolini:123mudar@10.130.214.242:3128/
-      #HTTPS_PROXY: http://dischiavolini:123mudar@10.130.214.242:3128/
-      #https_proxy: http://dischiavolini:123mudar@10.130.214.242:3128/
-      #http_proxy: http://dischiavolini:123mudar@10.130.214.242:3128/
-      #no_proxy: 10.*,127.*,localhost
-      #NO_PROXY: 10.*,127.*,localhost
-      #JAVA_OPTS: -Dhttp.proxyHost=10.130.214.242 -Dhttp.proxyPort=3128 -Dhttp.proxyUser=dischiavolini -Dhttp.proxyPassword=123mudar -Dhttp.nonProxyHosts=10.*|localhost|hub
-    stdin_open: true
-    tty: true
-    ports:
-    - 4444:4444/tcp
-  selenium-node-chrome:
-    image: selenium/node-chrome-debug
     environment:  
       SE_OPTS: -debug true
-      #HTTPS_PROXY: http://10.130.214.242:3128
-      #HTTP_PROXY: http://10.130.214.242:3128
-      #http_proxy: http://10.130.214.242:3128
-      #https_proxy: http://10.130.214.242:3128
-      #NO_PROXY: 10.*,127.*,localhost
-      #no_proxy: 10.*,127.*,localhost
-      #all_proxy: http://10.130.214.242:3128
-      #ALL_PROXY: http://10.130.214.242:3128
-      #JAVA_OPTS: -Dhttp.proxyHost=10.130.214.242 -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=10.*|localhost|hub
+    stdin_open: true
+    tty: true
+    networks:
+      - private
+  
+  chrome:
+    container_name: chrome
+    image: selenium/node-chrome-debug
+    networks:
+      - private
+    depends_on:
+      - hub 
+    environment:  
+      SE_OPTS: -debug true
+      HUB_PORT_4444_TCP_ADDR: hub
     stdin_open: true
     tty: true
     links:
-    - selenium-hub:hub
+    - hub:hub
     ports:
     - 5901:5900/tcp
-  selenium-node-firefox:
+    networks:
+      - private
+  
+  firefox:
+    container_name: firefox
     image: selenium/node-firefox-debug:3.3.0
+    networks:
+      - private
+    depends_on:
+    - hub
     environment:
+      HUB_PORT_4444_TCP_ADDR: hub
       SE_OPTS: -debug true
-      #http_proxy: http://10.130.214.242:3128
-      #https_proxy: http://10.130.214.242:3128
-      #no_proxy: localhost,127.0.0.1,10.*
-      #HTTP_PROXY: http://10.130.214.242:3128
-      #HTTPS_PROXY: http://10.130.214.242:3128
-      #NO_PROXY: localhost,127.0.0.1,10.*
-      #all_proxy: http://10.130.214.242:3128
-      #ALL_PROXY: http://10.130.214.242:3128
-      #JAVA_OPTS: -Dhttp.proxyHost=10.130.214.242 -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=10.*|localhost|hub
     stdin_open: true
     tty: true
     links:
-    - selenium-hub:hub
+    - hub:hub
     ports:
     - 5900:5900/tcp
+    networks:
+      - private
+    
