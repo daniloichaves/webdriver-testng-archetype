@@ -12,5 +12,5 @@ if [ $? -ne 0 ]; then
 else
     echo "Continuing with dockerized 'docker-compose' way"
 fi
-
-#compse-compose up
+#Excec 
+bash compse-compose up
