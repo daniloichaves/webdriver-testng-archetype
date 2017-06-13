@@ -57,6 +57,11 @@ selenium-node-firefox
  ./start.sh
 ```
 
+```
+mvn archetype:generate -DarchetypeGroupId=ru.stqa.selenium -DarchetypeArtifactId=webdriver-testng-archetype -DarchetypeVersion=4.0 -DgroupId=<mygroupId> -DartifactId=<myartifactId>
+```
+
+
 References:
 
 https://github.com/SeleniumHQ/docker-selenium
