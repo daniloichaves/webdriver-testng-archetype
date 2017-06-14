@@ -36,6 +36,13 @@
         <role>Owner</role>
       </roles>
     </developer>
+    <developer>
+      <id>daniloichaves</id>
+      <name>Danilo Ischiavolini Chaves</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
   </developers>
 
   <build>
@@ -86,7 +93,8 @@
       </plugin>
     </plugins>
   </build>
-
+  
+  <!--Distribution Management-->
   <distributionManagement>
     <snapshotRepository>
       <id>sonatype-nexus-snapshots</id>
