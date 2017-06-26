@@ -40,18 +40,13 @@ Driver capabilities can be tuned in the files `src/test/resources/*.capabilities
 Enviroment Docker Selenium Hub Configuration
 -----------------------------------
 
-The enviroment use docker for create a enviroment and test yout aplicação when you use localhost instance, 
- The file `docker-compose` is a configuration of oficial image for create this enviroment:
+The environment use docker for create a environment and test your aplicação when you use localhost instance, The file docker-compose is a configuration of oficial image for create this environment:
 
- Selenium-hub
-    It's a management node of selenium, it will expose the port 444
+Selenium-hub It's a management node of selenium, it will expose the port 444
 
-selenium-node-firefox
-    Its a node that contains only a client instance instaled with firefox,it will expose the port 590- for to acces via VNC
+selenium-node-firefox Its a node that contains only a client instance installed with firefox,it will expose the port 590- for to access via VNC
 
- selenium-node-chrome
-    Its a node that contains only a client instance instaled with chrome ,it will expose the port 5901 for to acces via VNC
-    
+selenium-node-chrome Its a node that contains only a client instance installed with chrome ,it will expose the port 5901 for to access via VNC    
 
 ```
  docker-compose up
